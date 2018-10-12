@@ -40,7 +40,6 @@ public class TopTrackProxy {
 			Iterator<JsonNode> iter = rootNode.get("tracks").get("track").elements();
 			while(iter.hasNext()) {
 				JsonNode trackNode = iter.next();
-				System.out.println(trackNode.get("artist").get("name").asText());
 				if(artist.getName().equals(trackNode.get("artist").get("name").asText())){
 					artist.setTopTrack(trackNode.get("name").asText());
 				}

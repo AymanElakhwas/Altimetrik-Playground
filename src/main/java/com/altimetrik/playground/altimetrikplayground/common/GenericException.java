@@ -1,4 +1,4 @@
-package com.altimetrik.playground.altimetrikplayground.external;
+package com.altimetrik.playground.altimetrikplayground.common;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

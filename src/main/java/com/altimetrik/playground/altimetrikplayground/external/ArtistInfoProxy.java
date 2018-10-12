@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestOperations;
 
+import com.altimetrik.playground.altimetrikplayground.common.GenericException;
 import com.altimetrik.playground.altimetrikplayground.model.Artist;
 import com.altimetrik.playground.altimetrikplayground.model.Bio;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -24,6 +25,7 @@ public class ArtistInfoProxy {
 
 	public String getArtistInfo(String artistName) {
 		String url = SERVICE_URL + "&artist=" + artistName + "&" + API_KEY + "&" + FORMAT;
+		System.out.println(url);
 		ResponseEntity<String> recipesResponse = this.restTemplate.getForEntity(url, String.class);
 		return recipesResponse.getBody();
 	}

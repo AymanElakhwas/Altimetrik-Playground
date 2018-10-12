@@ -12,7 +12,7 @@ import com.altimetrik.playground.altimetrikplayground.external.TopTrackProxy;
 import com.altimetrik.playground.altimetrikplayground.model.Artist;
 
 @RestController
-public class ArtistServiceController {
+public class ArtistRestController {
 
 	@Autowired
 	private ArtistInfoProxy artistInfoProxy;
@@ -23,19 +23,12 @@ public class ArtistServiceController {
 	@Autowired
 	private ArtistImageProxy imageProxy;
 
-	@GetMapping("/test")
-	public void testService() {
-		String imageJsonStr = this.imageProxy.getImage("Adele");
-		ArtistImageProxy.mapImageToArtist(imageJsonStr, null);
-	}
-
 	@GetMapping("/get-artist/{artistName}/{country}")
 	public Artist getArtistService(@PathVariable String artistName, @PathVariable String country) {
 		String artistJsonStr = this.artistInfoProxy.getArtistInfo(artistName);
 		Artist artist = new Artist();
 		ArtistInfoProxy.mapToArtist(artistJsonStr, artist);
 		String topTrackJsonStr = topTrackProxy.getTopTrackByCountry(country);
-		System.out.println(topTrackJsonStr);
 		TopTrackProxy.mapTopTrackToArtist(topTrackJsonStr, artist);
 		if (artist.getTopTrack() != null)
 			artist.setLyrics(lyricsProxy.getLyrics(artistName, artist.getTopTrack()));

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestOperations;
 
+import com.altimetrik.playground.altimetrikplayground.common.GenericException;
 import com.altimetrik.playground.altimetrikplayground.model.Artist;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

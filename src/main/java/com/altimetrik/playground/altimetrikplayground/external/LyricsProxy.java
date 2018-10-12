@@ -6,6 +6,8 @@ import org.jmusixmatch.entity.lyrics.Lyrics;
 import org.jmusixmatch.entity.track.Track;
 import org.springframework.stereotype.Component;
 
+import com.altimetrik.playground.altimetrikplayground.common.GenericException;
+
 @Component
 public class LyricsProxy {
 
